@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <graphics.h>
+#include <graphics.h> //Make sure you add linker -lgraph when you compile
 void lineDDA(int, int, int, int);
 int main()
 {
@@ -9,7 +9,7 @@ int main()
   scanf("%d %d", &x1, &y1);
   printf("Enter the ending coordinates of line: ");
   scanf("%d %d", &xn, &yn);
-  initgraph(&gd, &gm, NULL);
+  initgraph(&gd, &gm, NULL);          //Set you path variable accordingly
   lineDDA(x1, y1, xn, yn);
   getch();
   closegraph();
