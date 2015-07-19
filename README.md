@@ -22,3 +22,5 @@ Computer Science - Third Semester
 
 #####CSE220 (Theory/Lab) :
     Python/VHDL-Prof Santosh Kumar Sahu (SKS)/ Prof Vipin Tiwari (VT)
+
+Check out for wiki: http://nitb.github.io/CSE-III-/
