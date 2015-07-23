@@ -22,7 +22,7 @@ void lineDDA(int x1, int y1, int xn, int yn)
   m = (yn-y1)/(xn-x1);
   for (i=x1; i<=xn; i++)
   {
-    if (m<= 1)
+    if (m <= 1)
     {
       dx = 1;
       dy = m * dx;

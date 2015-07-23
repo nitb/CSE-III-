@@ -1,9 +1,10 @@
 #include <iostream>
+#include <conio.h>
 
 using namespace std;
 
 #define check_leap(year) ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0)))
-#define debug(n) cout << n << endl
+#define debug(n) n
 
 int get_days(int month, bool leap){
     if (month == 2){
@@ -61,6 +62,6 @@ int main(int argc, char * argv[]){
         total = num_days_between(month, day, month2, day2, check_leap(year));
     }
         cout << "Total Number of Days In Between: " << total << endl;
-    system("PAUSE");
+    getch();
     return 0;
 }
