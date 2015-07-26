@@ -71,6 +71,8 @@ int main()
         pop(stack);
       else if (isEmpty(stack))
         flag=0;
+      else 
+	flag=0;
     }
   }
   if (isEmpty(stack) && flag==1)
