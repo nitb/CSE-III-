@@ -18,22 +18,22 @@ int main(){
   closegraph();
   return 0;
 }
-void lineBresenham(x1,y1,xn,yn){
-  int dx=abs(x2-x1), dy=abs(y2-y1);
+void lineBresenham(int x1,int y1,int xn,int yn){
+  int dx=abs(xn-x1), dy=abs(yn-y1);
   int p=2*dy-dx;
   int tdy=2*dy, tdyx=2*(dy-dx);
   int x,y,end;
-  if (x1>x2){
-    x=x2;
-    y=y2;
+  if (x1>xn){
+    x=xn;
+    y=yn;
     end=x1;
   }
   else{
     x=x1;
-    y=y2;
-    end=x2;
+    y=yn;
+    end=xn;
   }
-  putpixel(x,y);
+  putpixel(x,y,WHITE);
   while (x<end){
     x++;
     if (p < 0)
@@ -42,6 +42,6 @@ void lineBresenham(x1,y1,xn,yn){
       y++;
       p += tdyx;
     }
-    putpixel(x,y);
+    putpixel(x,y,WHITE);
   }
 }
