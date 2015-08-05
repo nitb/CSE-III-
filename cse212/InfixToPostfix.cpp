@@ -2,7 +2,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<limits.h>
-#include<ncurses.h>
 #include<string.h>
 struct Stack
 {
@@ -19,7 +18,7 @@ struct Stack* createStack( unsigned capacity)
 	stack->top=-1;
 	stack->capacity = capacity;
 	stack->arr = (int*) malloc(stack->capacity*sizeof(int));
-        if (!stack->arr)
+  if (!stack->arr)
 		return NULL;
 	return stack;
 }
@@ -48,12 +47,12 @@ char pop(struct Stack* stack)
 
 void push(struct Stack* stack,char item)
 {
-	stack->arr[++stack->top]==item;
+	stack->arr[++stack->top]=item;
 }
 
 int isOperand(char item)
 {
-	return (item >= 'a' && item <= 'z') || (item >= 'A' || item <= 'Z'); 
+	return (item >= 'a' && item <= 'z') || (item >= 'A' && item <= 'Z');
 }
 
 int Precedence(char item)
@@ -88,7 +87,7 @@ int infixToPostfix(char* exp)
 		{
 			while (!isEmpty(stack) && peek(stack)!='(' )
 				exp[++k]=pop(stack);
-			if (!isEmpty(stack) && peek(stack))
+			if (!isEmpty(stack) && peek(stack)!='(')
 				return -1;
 			else
 				pop(stack);
@@ -97,7 +96,7 @@ int infixToPostfix(char* exp)
 		{
 			while (!isEmpty(stack) && Precedence(exp[i]) <= Precedence(peek(stack)))
 				exp[++k]=pop(stack);
-			push(stack,exp[i]);			
+			push(stack,exp[i]);
 		}
 	}
 	while (isEmpty(stack))
@@ -112,5 +111,3 @@ int main()
 	infixToPostfix(exp);
 	return 0;
 }
-
-
