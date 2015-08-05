@@ -85,7 +85,7 @@ int infixToPostfix(char* exp)
 			push(stack,exp[i]);
 		else if (exp[i]== ')')
 		{
-			while (!isEmpty(stack) && peek(stack)!='(' )
+			while ( !isEmpty(stack) && peek(stack)!='(' )
 				exp[++k]=pop(stack);
 			if (!isEmpty(stack) && peek(stack)!='(')
 				return -1;
@@ -102,14 +102,14 @@ int infixToPostfix(char* exp)
 	while (isEmpty(stack))
 		exp[++k]=pop(stack);
 	exp[++k]= '\0';
-	printf("%s",exp);
+	printf("%s\n",exp);
 }
 
 int main()
 {
 	char exp[20];
-	printf("Enter the expression:"); 
-	gets(exp);
+	printf("Enter the expression:");
+	scanf("%s",exp);
 	infixToPostfix(exp);
 	return 0;
 }

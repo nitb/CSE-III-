@@ -1,5 +1,5 @@
 #include <iostream>
-#include <conio.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -62,6 +62,6 @@ int main(int argc, char * argv[]){
         total = num_days_between(month, day, month2, day2, check_leap(year));
     }
         cout << "Total Number of Days In Between: " << total << endl;
-    getch();
+  //  getch();
     return 0;
 }

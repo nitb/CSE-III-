@@ -20,7 +20,7 @@ struct Stack* CreateStack(unsigned capacity)
 
 int isFull(struct Stack* stack)
 {
-	return stack->top==stack->capacity-1;	
+	return stack->top==stack->capacity-1;
 }
 
 int isEmpty(struct Stack* stack)
@@ -52,11 +52,11 @@ int peek(struct Stack* stack)
 int main()
 {
 	struct Stack* stack=CreateStack(100);
+
 	push(stack,10);
 	push(stack,20);
-	push(stack,30);
-	printf("%d",pop(stack));
-	printf("%d",peek(stack));
+	printf("%d\n",pop(stack));
+	printf("%d\n",peek(stack));
 	return 0;
 
 }
