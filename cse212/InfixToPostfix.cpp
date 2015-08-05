@@ -107,7 +107,9 @@ int infixToPostfix(char* exp)
 
 int main()
 {
-	char exp[]="a+b*(c^d-e)^(f+g*h)-i";
+	char exp[20];
+	printf("Enter the expression:"); 
+	gets(exp);
 	infixToPostfix(exp);
 	return 0;
 }
