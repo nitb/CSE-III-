@@ -1,4 +1,7 @@
-//Barun S.
+/*-------------------------
+| Author: Barun Singhania |
+-------------------------*/
+//Draw a circle relative to windowX
 #include<GL/glut.h>
 class screenPoint
 {
