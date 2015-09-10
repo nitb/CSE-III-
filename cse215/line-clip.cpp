@@ -15,11 +15,11 @@ PT resetendpt(PT p1, PT p2);
 int main(){
   PT p1, p2;
   int gd = DETECT, gm, v;
-  initgraph(&gd, &gm, NULL);
   //Take two end points.
   cin >> p1.x >> p1.y;
   cin >> p2.x >> p2.y;
   // Draw window
+  initgraph(&gd, &gm, NULL);
   drawwindow();
   p1 = setcode(p1);
   p2 = setcode(p2);
@@ -85,8 +85,12 @@ PT setcode(PT p){
    if (flag == 0)
     return 0;
   else{
-   if (p1.code[i] !)
+   if (p1.code[i] == p2.code[i] && p1.code[i] == '1')
+    flag = 0;
   }
+  if (flag)
+    return (1);
+  return (2);
  }
 
  PT resetendpt(PT p1, PT p2){
@@ -121,5 +125,5 @@ PT setcode(PT p){
     return temp;
   }
   else
-  return (p1);
+    return (p1);
 }
