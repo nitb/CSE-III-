@@ -3,13 +3,11 @@
 #include<stdlib.h>
 #include<stdio.h>
 using namespace std;
-
 struct node{
 	int data;
 	struct node* next;
 };
-
-
+void print(struct node*);
 void insertbeg(struct node **head, int data){
 	struct node *temp;
 	temp = (struct node* ) malloc(sizeof(struct node));
@@ -17,33 +15,44 @@ void insertbeg(struct node **head, int data){
 	temp->next = *head;
 	*head = temp;
 }
-
 void insertend(struct node **head,int data){
 	struct node *temp, *p;
 	temp = (struct node*) malloc(sizeof(struct node));
 	temp->data = data;
 	p = *head;
-	while (p != NULL)
+	while (p->next != NULL)
 		p = p->next;
 	p->next = temp;
 	temp->next = NULL;	
 }
-
 void insertpos(struct node **head,int data){
 	struct node *tmp, *temp;
 	tmp = *head;
+	int flag = 0;
 	temp = (struct node*) malloc(sizeof(struct node));
 	temp->data = data;
-	while ((tmp->data < data) && (tmp->next != NULL)){
-		tmp = tmp->next;
-	}
-	if (tmp->next == NULL){
-		temp->next == NULL;
-		tmp->next = temp;
+	temp->next = NULL;
+	if (tmp->data > data){
+		insertbeg(&*head,data);
+		print(*head);
 		return;
 	}
-	temp->next = tmp->next;
-	tmp->next = temp;	
+	while ((tmp->next != NULL) && (tmp->next->data < data)) 
+	{	tmp = tmp->next;
+		flag++;
+	}
+	if (flag >= 0 && tmp->next != NULL){	
+		temp->next = tmp->next;
+		tmp->next = temp;
+		print(*head);
+		return;
+	}
+	else{
+		if (tmp->data < data){
+			insertend(&*head,data);
+			print(*head);
+		}
+	}
 }
 
 void print(struct node *head){
@@ -54,11 +63,6 @@ void print(struct node *head){
 		tmp = tmp->next;
 	}
 }
-
-//int binarysearch(struct node *head){
-
-
-
 int main(){
 	struct node *head;
 	head = NULL;
@@ -72,8 +76,5 @@ int main(){
 		else
 			insertpos(&head, data);
 	}
-	print(head);
-//	int key;
-//	cin >> key;
-//	binarysearch(head,key);
+	return 0;
 }
