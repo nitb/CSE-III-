@@ -33,6 +33,7 @@ void circleMidpoint(int xc, int yc, int radius){
       circlePlotPoints(xc,yc,x,y);
   }
 }
+// This is a simple flood fill technique
 void circlePlotPoints(int xc, int yc, int x, int y){
   putpixel (xc+x,yc+y,WHITE);
   putpixel (xc-x,yc+y,WHITE);
